@@ -1,7 +1,7 @@
 class Job:
-    def save_data(self, title, company, link, platform):
+    def save_data(self, position, company, link, platform):
         return {
-            "title":title,
+            "position":position,
             "company":company,
             "link":link,
             "platform" : platform

@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, send_file
 from extractors.wanted import Wanted
+from extractors.berlin import extract_berlin_jobs
+from extractors.web3 import extract_web3_jobs
 from file import save_to_file
 
 app = Flask("JobScrapper")
@@ -20,7 +22,7 @@ def search():
     else:
         wanted = Wanted()
         content = wanted.get_pages(keyword)
-        jobs = wanted.scrape_page(content)
+        jobs = wanted.scrape_page(content) + extract_berlin_jobs(keyword) + extract_web3_jobs(keyword)
         db[keyword] = jobs
     return render_template("search.html", keyword=keyword, jobs=jobs)
 

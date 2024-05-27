@@ -44,10 +44,10 @@ class Wanted(Job):
 
         for job in jobs:
             link = f"https://www.wanted.co.kr{job.find('a')['href']}"
-            title = job.find("strong", class_="JobCard_title__ddkwM").text
+            position = job.find("strong", class_="JobCard_title__ddkwM").text
             company = job.find("span", class_="JobCard_companyName__vZMqJ").text
 
-            job = super().save_data(title, company, link, PLATFORM)
+            job = super().save_data(position, company, link, PLATFORM)
             jobs_db.append(job)
 
         # print(len(jobs_db))

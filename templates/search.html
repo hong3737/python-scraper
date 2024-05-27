@@ -21,14 +21,16 @@
                         <th>Position</th>
                         <th>Company</th>
                         <th>link</th>
+                        <th>platform</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for job in jobs %}
                     <tr>
-                        <td>{{job.title}}</td>
+                        <td>{{job.position}}</td>
                         <td>{{job.company}}</td>
                         <td><a href="{{job.link}}" target="_blank">Apply Now &rarr;</a></td>
+                        <td>{{job.platform}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
